@@ -1,0 +1,19 @@
+Environment variables - DO NOT UPLOAD!
+.env
+/server/.env
+
+Dependencies - These can be reinstalled from package.json
+/node_modules
+/server/node_modules
+
+Vite build output folder
+/dist
+
+Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+System files
+.DS_Store
+Thumbs.db
