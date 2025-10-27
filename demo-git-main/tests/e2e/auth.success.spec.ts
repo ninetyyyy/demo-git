@@ -43,4 +43,5 @@ test('Google auth success case', async ({ page, context }) => {
   await page.getByRole('button', { name: 'Next' }).click();
   await page.waitForTimeout(5000);
   await expect(page.getByRole('heading', { name: 'Welcome!' })).toBeVisible();
+  await page.screenshot({ path: 'screenshot.png' });
 });

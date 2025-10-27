@@ -2,6 +2,8 @@ Environment variables - DO NOT UPLOAD!
 .env
 /server/.env
 
+testresults
+
 Dependencies - These can be reinstalled from package.json
 /node_modules
 /server/node_modules
