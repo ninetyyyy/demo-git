@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('redirect to dashboard if Google OAuth URL detected', async ({ page, context }) => {
+test('Google auth success case', async ({ page, context }) => {
   
   await page.goto('http://localhost:5000/demo-git/login');
 

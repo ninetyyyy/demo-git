@@ -92,8 +92,35 @@
 
 ---
 
-## 6. Note / Assertion Checklist
+## 6. Scenario 5 – Google auth success case
+
+**Title:** redirect to dashboard if Google OAuth URL detected
+**Preconditions:**  
+- หน้า `/login` เปิด ได้  
+- มี mock cookie session
+- มีตัวดัก url ถ้าสำหรัก google reject -> dashbord (handle unsecure browser) เป็น mock function ของ google call back
+
+**Steps:**  
+1. เปิด หน้า `login`  
+2. กดปุ่ม login with google
+3. ใส่ emial
+4. กด next  
+5. google จะ reject เพราะ browser ไม่ secure
+6. ตัวดัก url ทำงาน
+ึ7. ฝัง mock cookie session ใน browser
+8. force navigate ไปที่ dashboard (ดัก url ทำงาน)
+9. รอresponseจากในการตรวจสอบ auth
+10. ตรวจหน้า "Welcome!" ในหน้า dashboard 
+
+**Expected:**  
+- จบที่หน้า dashboard และแสดงคำว่า "Welcome!"
+
+---
+
+## 7. Note / Assertion Checklist
 - ทุก scenario ใช้ `data-testid` กับ input และ button  
 - ตรวจสอบ `response.status()` และ URL พร้อมกัน  
 - Negative case ต้องมี assertion `not.toHaveURL(/dashboard/)`  
 - ทุก เคส สามารถ รัน ผ่าน UI mode ของ Playwright (`npx playwright test --ui`)  
+
+
