@@ -10,12 +10,12 @@ import "./googleAuth2/auth.js"; // Passport Google strategy
 // --- 1. Initial Setup ---
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 // --- 2. Middleware ---
 app.use(
   cors({
-    origin: "http://localhost:3000", // อนุญาตให้ frontend ที่พอร์ต 3000 เรียกได้
+    origin: "http://localhost:5000", // อนุญาตให้ frontend ที่พอร์ต 3000 เรียกได้
     credentials: true,
   })
 );
@@ -61,11 +61,11 @@ app.get("/auth/google", passport.authenticate("google", { scope: ["profile", "em
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    failureRedirect: "http://localhost:3000/demo-git/login",
+    failureRedirect: "http://localhost:5000/demo-git/login",
   }),
   (req, res) => {
     // เดิม: /demo-git/profile
-    res.redirect("http://localhost:3000/demo-git/dashboard");
+    res.redirect("http://localhost:5000/demo-git/dashboard");
   }
 );
 
@@ -92,7 +92,7 @@ app.get("/logout", (req, res, next) => {
   req.logout((err) => {
     if (err) return next(err);
     req.session.destroy(() =>
-      res.redirect("http://localhost:3000/demo-git/login")
+      res.redirect("http://localhost:5000/demo-git/login")
     );
   });
 });
